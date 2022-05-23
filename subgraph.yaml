@@ -1,22 +1,31 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: Contract
+    name: Sentrecieve
     network: chapel
     source:
       address: "0x39221212d161babba22BC96DF1402963FBaA9F53"
-      abi: Contract
+      abi: Sentrecieve
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
+        - ExampleEntity
 
       abis:
-        - name: Contract
-          file: ./abis/Contract.json
+        - name: Sentrecieve
+          file: ./abis/Sentrecieve.json
       eventHandlers:
+        - event: FundTransferredToRWAO(uint256,string,bool)
+          handler: handleFundTransferredToRWAO
+        - event: FundingDetails(uint256,uint256,uint256,string,uint256,uint256)
+          handler: handleFundingDetails
+        - event: RepaymentStatus(string,uint8)
+          handler: handleRepaymentStatus
+        - event: FeePaidToTreasury(string,address,address,bool)
+          handler: handleFeePaidToTreasury
 
       file: ./src/mapping.ts

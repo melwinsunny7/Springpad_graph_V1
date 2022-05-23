@@ -1,5 +1,17 @@
-type ExampleEntity @entity {
+type Loan @entity {
   id: ID!
-  block: Bytes!
-  count: BigInt!
+  LoanId: String
+  rwaoId: BigInt
+  AssetId: BigInt
+  NFTId: BigInt
+  FundingStatus: Boolean
+  Tenure: BigInt
+  RepaymentDate: BigInt
+}
+
+type LoanRepayment @entity {
+  id: ID!
+  LoanId: String
+  RepaymentStatus: Int
+  FeePaymentStatus: Boolean
 }
