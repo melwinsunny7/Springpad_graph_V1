@@ -1,39 +1,14 @@
 [
 	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "loanId",
-				"type": "string"
-			},
-			{
-				"indexed": false,
 				"internalType": "address",
-				"name": "remittanceAddress",
+				"name": "TokenContractAddress",
 				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "treasuryAddress",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "bool",
-				"name": "feePaymentStatus",
-				"type": "bool"
 			}
 		],
-		"name": "FeePaidToTreasury",
-		"type": "event"
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	},
 	{
 		"anonymous": false,
@@ -52,8 +27,38 @@
 			},
 			{
 				"indexed": false,
+				"internalType": "uint256",
+				"name": "assetId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "LNFTId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tenure",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "repaymentDate",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
 				"internalType": "bool",
-				"name": "fundTrasferred",
+				"name": "fundingStatus",
+				"type": "bool"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "feePaymentStatus",
 				"type": "bool"
 			}
 		],
@@ -101,25 +106,6 @@
 			}
 		],
 		"name": "FundingDetails",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "loanId",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint8",
-				"name": "repaymentStatus",
-				"type": "uint8"
-			}
-		],
-		"name": "RepaymentStatus",
 		"type": "event"
 	},
 	{
@@ -198,73 +184,12 @@
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "AssetContractAddress",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "BankingContractAddress",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
+		"stateMutability": "payable",
+		"type": "fallback"
 	},
 	{
 		"inputs": [],
 		"name": "DEFAULT_ADMIN_ROLE",
-		"outputs": [
-			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "FRPContractAddress",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "KYCContractAddress",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "USER_ROLE",
 		"outputs": [
 			{
 				"internalType": "bytes32",
@@ -327,47 +252,16 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "remittanceAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "rwaoId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "loanId",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "platformFee",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "treasuryAddress",
-				"type": "address"
-			}
-		],
-		"name": "fullRepayment",
+		"inputs": [],
+		"name": "getBalanceOfContract",
 		"outputs": [
 			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -455,31 +349,12 @@
 				"type": "string"
 			}
 		],
-		"name": "getLoanAmount",
+		"name": "getPlatformFee",
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "repaymentAmount",
+				"name": "platformFee",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "rwaoId",
-				"type": "uint256"
-			}
-		],
-		"name": "getRemittanceAddress",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "remittanceAddress",
-				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -499,6 +374,30 @@
 				"internalType": "bytes32",
 				"name": "",
 				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "loanId",
+				"type": "string"
+			}
+		],
+		"name": "getStatus",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "fundingStatus",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "feePaymentStatus",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -568,170 +467,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "rwaoId",
-				"type": "uint256"
-			}
-		],
-		"name": "isRWAOExists",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "rwaoExists",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "onchainRecordsAddress",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "remittanceAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "rwaoId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "loanId",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "actualRepayAmount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "platformFee",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "treasuryAddress",
-				"type": "address"
-			}
-		],
-		"name": "overRepayment",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "remittanceAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "rwaoId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "loanId",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "actualRepayAmount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "platformFee",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "treasuryAddress",
-				"type": "address"
-			}
-		],
-		"name": "partialRepayment",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "loanId",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "remittanceAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "treasuryAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "platformFee",
-				"type": "uint256"
-			}
-		],
-		"name": "payFeeToTreasury",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "feePaid",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "string",
 				"name": "",
 				"type": "string"
@@ -770,11 +505,6 @@
 				"type": "bool"
 			},
 			{
-				"internalType": "uint8",
-				"name": "_repaymentStatus",
-				"type": "uint8"
-			},
-			{
 				"internalType": "bool",
 				"name": "_feePaymentStatus",
 				"type": "bool"
@@ -809,50 +539,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "remittanceAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "rwaoId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "loanId",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "treasuryAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "platformFee",
-				"type": "uint256"
-			}
-		],
-		"name": "repayLoan",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "bytes32",
 				"name": "role",
 				"type": "bytes32"
@@ -871,44 +557,7 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "rwaoId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "balanceAmount",
-				"type": "uint256"
-			}
-		],
-		"name": "sendBalanceToRWAO",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "fundTransferetoBank",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_assetContactAddress",
-				"type": "address"
-			}
-		],
-		"name": "setAssetContractAddress",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
+				"internalType": "address payable",
 				"name": "_BankingContractAddress",
 				"type": "address"
 			}
@@ -947,6 +596,32 @@
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "_OnrecordsContractAddress",
+				"type": "address"
+			}
+		],
+		"name": "setOnrecordsContractAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_TreasuryAddress",
+				"type": "address"
+			}
+		],
+		"name": "setTreasuryAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "bytes4",
 				"name": "interfaceId",
 				"type": "bytes4"
@@ -977,7 +652,7 @@
 			},
 			{
 				"internalType": "uint256",
-				"name": "amount",
+				"name": "transferAmount",
 				"type": "uint256"
 			}
 		],
@@ -985,36 +660,7 @@
 		"outputs": [
 			{
 				"internalType": "bool",
-				"name": "fundTrasferred",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "remittanceAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "BankingContractAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transferfundtoSpringpaWallet",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "fundTransferetoBank",
+				"name": "fundTrasferredfromContractToRWAO",
 				"type": "bool"
 			}
 		],
@@ -1070,51 +716,7 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "loanId",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "balanceToPay",
-				"type": "uint256"
-			}
-		],
-		"name": "updateLoanDetails",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "loanDetailsUpdated",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "loanId",
-				"type": "string"
-			},
-			{
-				"internalType": "uint8",
-				"name": "repaymentStatus",
-				"type": "uint8"
-			}
-		],
-		"name": "updateRepaymentStatus",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "RepaymentStatusUpdated",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"stateMutability": "payable",
+		"type": "receive"
 	}
 ]

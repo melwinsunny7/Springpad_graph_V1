@@ -9,9 +9,9 @@ type Loan @entity {
   RepaymentDate: BigInt
 }
 
-type LoanRepayment @entity {
+type Repayment @entity {
   id: ID!
   LoanId: String
-  RepaymentStatus: Int
-  FeePaymentStatus: Boolean
+  RepaymentStatus: Boolean
+  fromAddress: Bytes
 }
